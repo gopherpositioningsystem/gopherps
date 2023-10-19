@@ -8,8 +8,10 @@ const terms = {
   "Spring 2024": 1243,
 }
 
-// turn a plain string into json objects the api will take
+// turn a plain string into json objects that the api will take
+// yes this search format makes no sense, but it is what schedule builder does
 const buildQuery = (search: String) => {
+  // if the search query includes a space (i.e. "CLA 1001"), split it into a subject ("CLA") and number ("1001")
   return search.includes(' ') ?
     search.split(' ').map(s => {
       switch (isNaN(s)) {
@@ -41,6 +43,7 @@ const buildQuery = (search: String) => {
           }
       }
     })
+    // otherwise, just search it as a string
     :
     {
       "param": "string",
