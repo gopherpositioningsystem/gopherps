@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
-import { useForm, Controller } from 'react-hook-form'
+import { Formik } from 'formik';
 import React from 'react';
 
 // for future use, maps nice names to the codes the api uses
@@ -27,8 +27,8 @@ const buildQuery = (search: String) => {
 }
 
 // search for a class string via the api
-const searchString = (s: String, term: string) => {
-  return fetch('https://schedulebuilder.umn.edu/api.php?' + new URLSearchParams({
+const searchString = async (s: String, term: string) => {
+  return await fetch('https://schedulebuilder.umn.edu/api.php?' + new URLSearchParams({
     type: "param_search",
     institution: "UMNTC",
     campus: "UMNTC",
@@ -40,9 +40,9 @@ const searchString = (s: String, term: string) => {
       Accept: 'application/json',
     }
   })
-    .catch(error => {
-      console.warn(error)
-    })
+  // .catch(error => {
+  //   console.warn(error)
+  // })
 }
 
 // get more detailed info about class from id (id can be retrieved from a search)
@@ -56,27 +56,28 @@ const classInfo = (classes) => {
 */
 
 export default function App() {
-  const { control, handleSubmit, formState: { errors }
-  } = useForm();
+  const searchCourse = async (course: String) => {
+    const search = await searchString(course, "1293")
+    console.log(search.json);
+  }
 
   return (
-    <View>
-      <Controller
-        control={control}
-        render={({ onChange, onBlur, value }) => (
-          <TextInput
-            style={{ paddingHorizontal: 20, borderWidth: 1, paddingVertical: 8 }}
-            onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
-            value={value}
-          />
+    <View style={styles.container}>
+      <Formik
+        initialValues={{ course: 'CLA 1001' }}
+        onSubmit={values => searchCourse(values.course)}
+      >
+        {({ handleChange, handleBlur, handleSubmit, values }) => (
+          <View>
+            <TextInput
+              onChangeText={handleChange('course')}
+              onBlur={handleBlur('course')}
+              value={values.course}
+            />
+            <Button onPress={handleSubmit} title="Submit" />
+          </View>
         )}
-        name='class'
-        rules={{ required: true }}
-        defaultValue=''
-      />
-      {errors.class && <Text>Class is required</Text>}
-      <Button title="Submit" onPress={handleSubmit((data) => console.log(data))} />
+      </Formik>
     </View>
   )
 
