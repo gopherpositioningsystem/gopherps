@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { useForm, Controller } from 'react-hook-form'
+import React from 'react';
 
 // for future use, maps nice names to the codes the api uses
 const terms = {
@@ -55,17 +56,30 @@ const classInfo = (classes) => {
 */
 
 export default function App() {
-  const { search, handleSubmit } = useForm({ shouldUseNativeValidation: true });
-  const onSubmit = async data => { console.log(data) }
+  const { control, handleSubmit, formState: { errors }
+  } = useForm();
 
   return (
-    <View style={styles.container}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...search("Course", { required: "Please enter your course (i.e. CLA 1001)" })} />
-        <input type="submit" />
-      </form>
+    <View>
+      <Controller
+        control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={{ paddingHorizontal: 20, borderWidth: 1, paddingVertical: 8 }}
+            onBlur={onBlur}
+            onChangeText={(value) => onChange(value)}
+            value={value}
+          />
+        )}
+        name='class'
+        rules={{ required: true }}
+        defaultValue=''
+      />
+      {errors.class && <Text>Class is required</Text>}
+      <Button title="Submit" onPress={handleSubmit((data) => console.log(data))} />
     </View>
-  );
+  )
+
 }
 
 const styles = StyleSheet.create({
