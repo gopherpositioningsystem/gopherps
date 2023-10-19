@@ -75,15 +75,19 @@ const searchString = async (s: String, term: String) => {
   })
 }
 
-// get more detailed info about class from id (id can be retrieved from a search)
+// get more detailed info (i.e. how many credits, description, etc) about class from id (id can be retrieved from a search)
 const classInfo = async (classId: String, term: Number) => {
   return await fetch('https://schedulebuilder.umn.edu/api.php?type=courses&institution=UMNTC&campus=UMNTC&term=1243&crse_ids=' + classId)
 }
 
 export default function App() {
+  // test function, run after user presses "submit"
   const searchCourse = async (course: String) => {
+    // search the course name the user enters with searchString
     const search: [{ "id": Number, "sections": Number[] }] = await (await searchString(course, "1239")).json()
+    // get course info for users's specified course
     const courseInfo = await (await classInfo(search[0].id.toString(), 1239)).json()
+
     console.log(courseInfo)
   }
 
