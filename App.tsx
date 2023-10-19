@@ -10,20 +10,50 @@ const terms = {
 
 // turn a plain string into json objects the api will take
 const buildQuery = (search: String) => {
-  return search.split(' ').map(s => {
-    return {
+  return search.includes(' ') ?
+    search.split(' ').map(s => {
+      switch (isNaN(s)) {
+        case true:
+          return {
+            "param": "subject",
+            "value": s,
+            "token": "subject",
+            "standalone": true,
+            "start": 0,
+            "end": s.length - 1,
+            "raw_value": s,
+            "range": false,
+            "multiple": false,
+            "stopwords": []
+          }
+        case false:
+          return {
+            "param": "number",
+            "value": s,
+            "token": "number",
+            "standalone": true,
+            "start": 0,
+            "end": s.length - 1,
+            "raw_value": s,
+            "range": false,
+            "multiple": false,
+            "stopwords": []
+          }
+      }
+    })
+    :
+    {
       "param": "string",
-      "value": s,
+      "value": search,
       "token": "string",
       "standalone": true,
       "start": 0,
-      "end": s.length,
-      "raw_value": s,
+      "end": search.length - 1,
+      "raw_value": search,
       "range": false,
       "multiple": false,
       "stopwords": []
     }
-  })
 }
 
 // search for a class string via the api
@@ -57,8 +87,9 @@ const classInfo = (classes) => {
 
 export default function App() {
   const searchCourse = async (course: String) => {
-    const search = await searchString(course, "1293")
-    console.log(search.json);
+    const search = await searchString(course, "1243")
+    console.log(buildQuery(course))
+    console.log(search.text())
   }
 
   return (
