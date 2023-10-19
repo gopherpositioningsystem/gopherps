@@ -57,7 +57,7 @@ const buildQuery = (search: String) => {
 }
 
 // search for a class string via the api
-const searchString = async (s: String, term: string) => {
+const searchString = async (s: String, term: String) => {
   return await fetch('https://schedulebuilder.umn.edu/api.php?' + new URLSearchParams({
     type: "param_search",
     institution: "UMNTC",
@@ -70,25 +70,18 @@ const searchString = async (s: String, term: string) => {
       Accept: 'application/json',
     }
   })
-  // .catch(error => {
-  //   console.warn(error)
-  // })
 }
 
 // get more detailed info about class from id (id can be retrieved from a search)
-/*
-const classInfo = (classes) => {
-  return fetch('https://schedulebuilder.umn.edu/api.php?type=courses&institution=UMNTC&campus=UMNTC&term=1243&crse_ids=' + classes)
-    .catch(error => {
-      console.warn(error)
-    })
+const classInfo = async (classId: String, term: Number) => {
+  return await fetch('https://schedulebuilder.umn.edu/api.php?type=courses&institution=UMNTC&campus=UMNTC&term=1243&crse_ids=' + classId)
 }
-*/
 
 export default function App() {
   const searchCourse = async (course: String) => {
-    const search = await searchString(course, "1239")
-    console.log(await search.text())
+    const search: [{ "id": Number, "sections": Number[] }] = await (await searchString(course, "1239")).json()
+    const courseInfo = await (await classInfo(search[0].id.toString(), 1239)).json()
+    console.log(courseInfo)
   }
 
   return (
