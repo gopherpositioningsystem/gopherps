@@ -63,7 +63,7 @@ const searchString = async (s: String, term: string) => {
     institution: "UMNTC",
     campus: "UMNTC",
     term: term,
-    json: buildQuery(s).toString()
+    json: JSON.stringify(buildQuery(s))
   }), {
     method: 'POST',
     headers: {
@@ -87,9 +87,8 @@ const classInfo = (classes) => {
 
 export default function App() {
   const searchCourse = async (course: String) => {
-    const search = await searchString(course, "1243")
-    console.log(buildQuery(course))
-    console.log(search.text())
+    const search = await searchString(course, "1239")
+    console.log(await search.text())
   }
 
   return (
