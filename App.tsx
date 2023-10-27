@@ -8,87 +8,43 @@ const terms = {
   "Spring 2024": 1243,
 }
 
-// turn a plain string into json objects that the api will take
-// yes this search format makes no sense, but it is what schedule builder does
-const buildQuery = (search: String) => {
-  // if the search query includes a space (i.e. "CLA 1001"), split it into a subject ("CLA") and number ("1001")
-  return search.includes(' ') ?
-    search.split(' ').map(s => {
-      switch (isNaN(s)) {
-        case true:
-          return {
-            "param": "subject",
-            "value": s,
-            "token": "subject",
-            "standalone": true,
-            "start": 0,
-            "end": s.length - 1,
-            "raw_value": s,
-            "range": false,
-            "multiple": false,
-            "stopwords": []
-          }
-        case false:
-          return {
-            "param": "number",
-            "value": s,
-            "token": "number",
-            "standalone": true,
-            "start": 0,
-            "end": s.length - 1,
-            "raw_value": s,
-            "range": false,
-            "multiple": false,
-            "stopwords": []
-          }
-      }
-    })
-    // otherwise, just search it as a string
-    :
-    {
-      "param": "string",
-      "value": search,
-      "token": "string",
-      "standalone": true,
-      "start": 0,
-      "end": search.length - 1,
-      "raw_value": search,
-      "range": false,
-      "multiple": false,
-      "stopwords": []
-    }
-}
-
 // search for a class string via the api
 const searchString = async (s: String, term: String) => {
-  return await fetch('https://schedulebuilder.umn.edu/api.php?' + new URLSearchParams({
-    type: "param_search",
-    institution: "UMNTC",
-    campus: "UMNTC",
-    term: term,
-    json: JSON.stringify(buildQuery(s))
-  }), {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-    }
-  })
-}
+  let subject
+  let course_number
 
-// get more detailed info (i.e. how many credits, description, etc) about class from id (id can be retrieved from a search)
-const classInfo = async (classId: String, term: Number) => {
-  return await fetch('https://schedulebuilder.umn.edu/api.php?type=courses&institution=UMNTC&campus=UMNTC&term=1243&crse_ids=' + classId)
+  if (s.includes(' ')) {
+
+    s.split(' ').map(i => {
+      //@ts-ignore
+      switch (isNaN(i)) {
+        case true:
+          subject = i
+        case false:
+          course_number = i
+      }
+    })
+
+    console.log(subject)
+    console.log(course_number)
+
+    //@ts-ignore
+    return await fetch('https://courses.umn.edu/campuses/UMNTC/terms/' + term + '/classes.json?q=subject_id=' + subject + ',catalog_number=' + course_number, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      }
+    })
+  }
 }
 
 export default function App() {
   // test function, run after user presses "submit"
   const searchCourse = async (course: String) => {
     // search the course name the user enters with searchString
-    const search: [{ "id": Number, "sections": Number[] }] = await (await searchString(course, "1239")).json()
-    // get course info for users's specified course
-    const courseInfo = await (await classInfo(search[0].id.toString(), 1239)).json()
+    const search = await (await searchString(course, "1239"))?.json()
 
-    console.log(courseInfo)
+    console.log(search)
   }
 
   return (
