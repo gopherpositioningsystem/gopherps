@@ -10,7 +10,9 @@ const terms = {
 }
 
 // list of data entries, used for placeholder displaying
-const [dataEntries, setDataEntries] = useState([{key: "placehoelder"}])
+//const [dataEntries, setDataEntries] = useState([{key: "placehoelder"}])
+
+let dataEntries = [{key: "placeholder"}]
 
 // search for a class string via the api
 const searchString = async (s: String, term: String) => {
@@ -63,19 +65,14 @@ export default function App() {
         tempDataEntries.push({key: search["courses"][i]["sections"][j]["component"] + " " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["days"][0]["name"] + " "+ search["courses"][i]["sections"][j]["meeting_patterns"][0]["start_time"] + " - " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["end_time"]})
       } //TODO: only adds first meeting day to dataEntries, need to add all days
     }
-
-    setDataEntries(tempDataEntries)
+    console.log(tempDataEntries)
+    //setDataEntries(tempDataEntries)
+    dataEntries = tempDataEntries;
   }
 
 
   return (
     <View style={styles.container}>
-      <FlatList style={styles.flatList}
-        data={dataEntries}
-        renderItem={({ item }) => <Text>{item.key}</Text>}
-      />
-
-
       <Formik
         initialValues={{ course: 'CSCI 4041' }}
         onSubmit={values => searchCourse(values.course)}
@@ -88,6 +85,13 @@ export default function App() {
               value={values.course}
             />
             <Button onPress={handleSubmit} title="Submit" />
+            <Text>{dataEntries.join(",")}</Text>
+
+            <FlatList 
+              style={styles.flatList} 
+              data={dataEntries}
+              renderItem={({ item }) => <Text>{item.key}</Text>}  
+              />
 
           </View>
         )}
