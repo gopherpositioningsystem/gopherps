@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, FlatList, ScrollView } from 'react-native';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
 
@@ -13,6 +13,7 @@ const terms = {
 //const [dataEntries, setDataEntries] = useState([{key: "placehoelder"}])
 
 let dataEntries = [{key: "placeholder"}]
+let savedSections = [{key: "lower placeholder"}]
 
 // search for a class string via the api
 const searchString = async (s: String, term: String) => {
@@ -62,8 +63,18 @@ export default function App() {
 
     for (let i =0 ; i<search["courses"].length; i++) {
       for (let j =0 ; j<search["courses"][i]["sections"].length; j++) {
-        tempDataEntries.push({key: search["courses"][i]["sections"][j]["component"] + " " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["days"][0]["name"] + " "+ search["courses"][i]["sections"][j]["meeting_patterns"][0]["start_time"] + " - " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["end_time"]})
+        tempDataEntries.push({key: 
+          search["courses"][i]["sections"][j]["instructors"][0]["name"] +
+          " " +
+          search["courses"][i]["sections"][j]["component"] + 
+          " " +
+          search["courses"][i]["sections"][j]["meeting_patterns"][0]["days"][0]["name"] +
+          " " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["start_time"] +
+          " - " +
+          search["courses"][i]["sections"][j]["meeting_patterns"][0]["end_time"]})
       } //TODO: only adds first meeting day to dataEntries, need to add all days
+        //TODO: maybe restructure this for loop to be more readable 
+        //TODO: rename dataEntries to something more descriptive
     }
     console.log(tempDataEntries)
     //setDataEntries(tempDataEntries)
@@ -85,13 +96,22 @@ export default function App() {
               value={values.course}
             />
             <Button onPress={handleSubmit} title="Submit" />
-            <Text>{dataEntries.join(",")}</Text>
 
             <FlatList 
               style={styles.flatList} 
               data={dataEntries}
-              renderItem={({ item }) => <Text>{item.key}</Text>}  
+              renderItem={({ item }) => <Text style={styles.flatListItem}>{item.key}</Text>}  
               />
+
+            <FlatList 
+              style={styles.savedSectionsList} 
+              data={savedSections}
+              renderItem={({ item }) => <Text style={styles.flatListItem}>{item.key}</Text>}  
+              />
+
+        
+
+
 
           </View>
         )}
@@ -110,9 +130,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   flatList: {
-    height: 600,
+    height: 250,
     width: 300,
     backgroundColor: '#c891e3',
-    flexGrow: 0
+    flexGrow: 0,
+    margin: 10,
+  }, 
+  savedSectionsList :{
+    height: 250,
+    width: 300,
+    backgroundColor: '#e3c891',
+    flexGrow: 0,
+    margin: 10,
+  },
+  flatListItem: {
+    padding: 4,
+    fontSize: 12,
+    color: '#FFFFFF',
+    textAlign: 'center'
   }
 });
