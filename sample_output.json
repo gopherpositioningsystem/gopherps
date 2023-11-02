@@ -1,0 +1,897 @@
+{
+    "campus": {
+        "type": "campus",
+        "abbreviation": "UMNTC",
+        "campus_id": "UMNTC"
+    },
+    "term": {
+        "type": "term",
+        "term_id": "1239",
+        "strm": "1239"
+    },
+    "courses": [
+        {
+            "type": "course",
+            "course_id": "003675",
+            "id": "327316889",
+            "catalog_number": "4041",
+            "description": "Rigorous analysis of algorithms/implementation. Algorithm analysis, sorting algorithms, binary trees, heaps, priority queues, heapsort, balanced binary search trees, AVL trees, hash tables and hashing, graphs, graph traversal, single source shortest path, minimum cost spanning trees.\n\nprereq: [(1913 or 1933) and 2011] or instr consent; cannot be taken for grad CSci cr",
+            "title": "Algorithms and Data Structures",
+            "repeatable": "N",
+            "repeat_limit": "1",
+            "units_repeat_limit": "4",
+            "offer_frequency": "Every Fall & Spring",
+            "credits_minimum": "4",
+            "credits_maximum": "4",
+            "grading_basis": {
+                "type": "grading_basis",
+                "grading_basis_id": "OPT",
+                "id": "95591",
+                "description": "Student Option"
+            },
+            "subject": {
+                "type": "subject",
+                "subject_id": "CSCI",
+                "id": "11098221",
+                "description": "Computer Science"
+            },
+            "equivalency": {
+                "type": "equivalency",
+                "equivalency_id": "02015"
+            },
+            "course_attributes": [],
+            "sections": [
+                {
+                    "type": "section",
+                    "id": "219572620",
+                    "class_number": "33045",
+                    "number": "017",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "11:15",
+                            "end_time": "12:05",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "AKERH00225",
+                                "id": "3427093",
+                                "description": "Akerman Hall 225"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572623",
+                    "class_number": "33044",
+                    "number": "016",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "10:10",
+                            "end_time": "11:00",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "AKERH00225",
+                                "id": "3427093",
+                                "description": "Akerman Hall 225"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572628",
+                    "class_number": "25286",
+                    "number": "011",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "15:35",
+                            "end_time": "16:25",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "LINDH0L120",
+                                "id": "3427100",
+                                "description": "Lind Hall L120"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Thursday",
+                                    "abbreviation": "th"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572631",
+                    "class_number": "26017",
+                    "number": "015",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "09:05",
+                            "end_time": "09:55",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "AKERH00225",
+                                "id": "3427093",
+                                "description": "Akerman Hall 225"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572634",
+                    "class_number": "25639",
+                    "number": "014",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "18:50",
+                            "end_time": "19:40",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "EE/CS03111",
+                                "id": "3427399",
+                                "description": "Keller Hall 3-111"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Thursday",
+                                    "abbreviation": "th"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572639",
+                    "class_number": "24928",
+                    "number": "005",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "11:15",
+                            "end_time": "12:05",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "STSS00530A",
+                                "id": "3427470",
+                                "description": "Bruininks Hall 530A"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572643",
+                    "class_number": "23605",
+                    "number": "004",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "10:10",
+                            "end_time": "11:00",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "LINDH0L120",
+                                "id": "3427100",
+                                "description": "Lind Hall L120"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572647",
+                    "class_number": "25541",
+                    "number": "013",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "17:45",
+                            "end_time": "18:35",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "EE/CS03111",
+                                "id": "3427399",
+                                "description": "Keller Hall 3-111"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Thursday",
+                                    "abbreviation": "th"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572651",
+                    "class_number": "23603",
+                    "number": "002",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "08:00",
+                            "end_time": "08:50",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "AKERH00225",
+                                "id": "3427093",
+                                "description": "Akerman Hall 225"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572655",
+                    "class_number": "25070",
+                    "number": "006",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "12:20",
+                            "end_time": "13:10",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "LINDH0L120",
+                                "id": "3427100",
+                                "description": "Lind Hall L120"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572659",
+                    "class_number": "23604",
+                    "number": "003",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "09:05",
+                            "end_time": "09:55",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "EE/CS03125",
+                                "id": "3427102",
+                                "description": "Keller Hall 3-125"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Friday",
+                                    "abbreviation": "f"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572662",
+                    "class_number": "25287",
+                    "number": "012",
+                    "component": "DIS",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "40",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "16:40",
+                            "end_time": "17:30",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "AKERH00225",
+                                "id": "3427093",
+                                "description": "Akerman Hall 225"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Thursday",
+                                    "abbreviation": "th"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572665",
+                    "class_number": "23602",
+                    "number": "001",
+                    "component": "LEC",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "200",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Kathryn Jensen",
+                            "email": "katej@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Youfu Yan",
+                            "email": "yan00111@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Chelsey Edge",
+                            "email": "edge0037@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Qi Le",
+                            "email": "le000288@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Amarachi Nzeukwu",
+                            "email": "nzeuk001@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "11:15",
+                            "end_time": "12:30",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "EE/CS03210",
+                                "id": "3427080",
+                                "description": "Keller Hall 3-210"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Tuesday",
+                                    "abbreviation": "t"
+                                },
+                                {
+                                    "type": "day",
+                                    "name": "Thursday",
+                                    "abbreviation": "th"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                },
+                {
+                    "type": "section",
+                    "id": "219572669",
+                    "class_number": "25285",
+                    "number": "010",
+                    "component": "LEC",
+                    "location": "TCEASTBANK",
+                    "notes": "",
+                    "status": "A",
+                    "print": "Y",
+                    "enrollment_cap": "280",
+                    "instruction_mode": {
+                        "type": "instruction_mode",
+                        "instruction_mode_id": "P",
+                        "id": "83486",
+                        "description": "In Person"
+                    },
+                    "instructors": [
+                        {
+                            "type": "instructor",
+                            "name": "Lily Guo",
+                            "email": "guo00111@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Wenlong Wang",
+                            "email": "wang9467@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Zechen Zhang",
+                            "email": "zhan5260@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Maryam Kameli",
+                            "email": "kamel026@umn.edu",
+                            "role": "TA",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Dania Sidhu",
+                            "email": "drsidhu@umn.edu",
+                            "role": "PRXY",
+                            "print": "N"
+                        },
+                        {
+                            "type": "instructor",
+                            "name": "Carl Sturtivant",
+                            "email": "carl@umn.edu",
+                            "role": "PI",
+                            "print": "Y"
+                        }
+                    ],
+                    "meeting_patterns": [
+                        {
+                            "type": "meeting_pattern",
+                            "start_time": "16:00",
+                            "end_time": "17:15",
+                            "start_date": "2023-09-05",
+                            "end_date": "2023-12-13",
+                            "location": {
+                                "type": "location",
+                                "location_id": "SMITH00100",
+                                "id": "3427356",
+                                "description": "Smith Hall 100"
+                            },
+                            "days": [
+                                {
+                                    "type": "day",
+                                    "name": "Monday",
+                                    "abbreviation": "m"
+                                },
+                                {
+                                    "type": "day",
+                                    "name": "Wednesday",
+                                    "abbreviation": "w"
+                                }
+                            ]
+                        }
+                    ],
+                    "combined_sections": []
+                }
+            ]
+        }
+    ]
+}

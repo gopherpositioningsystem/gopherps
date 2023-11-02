@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native';
 import { Formik } from 'formik';
 import React from 'react';
+
 
 // for future use, maps nice names to the codes the api uses
 const terms = {
@@ -44,13 +45,55 @@ export default function App() {
     // search the course name the user enters with searchString
     const search = await (await searchString(course, "1239"))?.json()
 
-    console.log(search)
+    processSearches(search)
+    //console.log(JSON.stringify(search)) //TODO: remove this, it was added for debugging -- Andy
   }
+
+  const processSearches = (search: any) => {
+    // TODO: rewrite this in better JS style?? 
+    const principleInstructors = [] // list of principle instructors
+    const dataEntries = [] // list of data entries
+
+    
+
+    let sectionInstructors = [] //= search["courses"][0]["sections"][0]["instructors"][0]["name"]
+
+    for (let i = 0; i < search["courses"].length; i++) {
+      for (let j = 0; j < search["courses"][i]["sections"].length; j++) {
+        for (let k = 0; k < search["courses"][i]["sections"][j]["instructors"].length; k++) {
+
+          sectionInstructors.push(search["courses"][i]["sections"][j]["instructors"][k]["name"]);
+        }
+          dataEntries.push(sectionInstructors + " " + search["courses"][i]["sections"][j]["component"])
+      }
+    }
+
+    console.log(dataEntries)
+    //console.log(JSON.stringify(search))
+  }
+
 
   return (
     <View style={styles.container}>
+      <FlatList style={styles.flatList}
+        data={[
+          { key: 'Devin' },
+          { key: 'Dan' },
+          { key: 'Dominic' },
+          { key: 'Jackson' },
+          { key: 'James' },
+          { key: 'Joel' },
+          { key: 'John' },
+          { key: 'Jillian' },
+          { key: 'Jimmy' },
+          { key: 'Julie' },
+        ]}
+        renderItem={({ item }) => <Text>{item.key}</Text>}
+      />
+
+
       <Formik
-        initialValues={{ course: 'CLA 1001' }}
+        initialValues={{ course: 'CSCI 4041' }}
         onSubmit={values => searchCourse(values.course)}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -61,9 +104,11 @@ export default function App() {
               value={values.course}
             />
             <Button onPress={handleSubmit} title="Submit" />
+
           </View>
         )}
       </Formik>
+
     </View>
   )
 
@@ -76,4 +121,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  flatList: {
+    height: 600,
+    width: 300,
+    backgroundColor: '#c891e3',
+    flexGrow: 0
+  }
 });
