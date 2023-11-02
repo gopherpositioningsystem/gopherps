@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native';
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 // for future use, maps nice names to the codes the api uses
@@ -8,6 +8,9 @@ const terms = {
   "Fall 2023": 1239,
   "Spring 2024": 1243,
 }
+
+// list of data entries, used for placeholder displaying
+const [dataEntries, setDataEntries] = useState([{key: "placehoelder"}])
 
 // search for a class string via the api
 const searchString = async (s: String, term: String) => {
@@ -45,49 +48,30 @@ export default function App() {
     // search the course name the user enters with searchString
     const search = await (await searchString(course, "1239"))?.json()
 
-    processSearches(search)
+    processSearch(search)
     //console.log(JSON.stringify(search)) //TODO: remove this, it was added for debugging -- Andy
   }
 
-  const processSearches = (search: any) => {
+  const processSearch = (search: any) => {
     // TODO: rewrite this in better JS style?? 
-    const principleInstructors = [] // list of principle instructors
-    const dataEntries = [] // list of data entries
+    const principleInstructors: any[] = [] // list of principle instructors
+    const tempDataEntries = [] // list of data entries
 
-    
 
-    let sectionInstructors = [] //= search["courses"][0]["sections"][0]["instructors"][0]["name"]
-
-    for (let i = 0; i < search["courses"].length; i++) {
-      for (let j = 0; j < search["courses"][i]["sections"].length; j++) {
-        for (let k = 0; k < search["courses"][i]["sections"][j]["instructors"].length; k++) {
-
-          sectionInstructors.push(search["courses"][i]["sections"][j]["instructors"][k]["name"]);
-        }
-          dataEntries.push(sectionInstructors + " " + search["courses"][i]["sections"][j]["component"])
-      }
+    for (let i =0 ; i<search["courses"].length; i++) {
+      for (let j =0 ; j<search["courses"][i]["sections"].length; j++) {
+        tempDataEntries.push({key: search["courses"][i]["sections"][j]["component"] + " " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["days"][0]["name"] + " "+ search["courses"][i]["sections"][j]["meeting_patterns"][0]["start_time"] + " - " + search["courses"][i]["sections"][j]["meeting_patterns"][0]["end_time"]})
+      } //TODO: only adds first meeting day to dataEntries, need to add all days
     }
 
-    console.log(dataEntries)
-    //console.log(JSON.stringify(search))
+    setDataEntries(tempDataEntries)
   }
 
 
   return (
     <View style={styles.container}>
       <FlatList style={styles.flatList}
-        data={[
-          { key: 'Devin' },
-          { key: 'Dan' },
-          { key: 'Dominic' },
-          { key: 'Jackson' },
-          { key: 'James' },
-          { key: 'Joel' },
-          { key: 'John' },
-          { key: 'Jillian' },
-          { key: 'Jimmy' },
-          { key: 'Julie' },
-        ]}
+        data={dataEntries}
         renderItem={({ item }) => <Text>{item.key}</Text>}
       />
 
