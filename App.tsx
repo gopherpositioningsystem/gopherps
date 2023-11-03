@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View, Button, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, FlatList, ScrollView, TouchableWithoutFeedback} from 'react-native';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
 
@@ -81,6 +81,14 @@ export default function App() {
     dataEntries = tempDataEntries;
   }
 
+  const addToSavedSections = (item: any) => {
+    let tempSavedSections : {key: string}[] = []; //TODO: this is a hack, need to fix this
+    tempSavedSections.concat (savedSections);
+    tempSavedSections.push(item)
+    savedSections = tempSavedSections;
+    console.log(savedSections)
+  }
+
 
   return (
     <View style={styles.container}>
@@ -88,7 +96,8 @@ export default function App() {
         initialValues={{ course: 'CSCI 4041' }}
         onSubmit={values => searchCourse(values.course)}
       >
-        {({ handleChange, handleBlur, handleSubmit, values }) => (
+        {
+        ({ handleChange, handleBlur, handleSubmit, values }) => (
           <View>
             <TextInput
               onChangeText={handleChange('course')}
@@ -100,13 +109,24 @@ export default function App() {
             <FlatList 
               style={styles.flatList} 
               data={dataEntries}
-              renderItem={({ item }) => <Text style={styles.flatListItem}>{item.key}</Text>}  
+              renderItem={({item}) => (
+
+                <TouchableWithoutFeedback onPress= {() => addToSavedSections(item)}>
+  
+                    <View>
+                       <Text style={styles.flatListItem}>{item.key}</Text> 
+                    </View>
+  
+               </TouchableWithoutFeedback>
+  
+                )}
               />
 
             <FlatList 
               style={styles.savedSectionsList} 
               data={savedSections}
-              renderItem={({ item }) => <Text style={styles.flatListItem}>{item.key}</Text>}  
+              renderItem={
+                ({ item }) => <Text style={styles.flatListItem}>{item.key}</Text>}  
               />
 
         
