@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
+import CoursesView from './CoursesView';
 
 // for future use, maps nice names to the codes the api uses
 const terms = {
@@ -25,10 +26,6 @@ const searchString = async (s: String, term: String) => {
       }
     })
 
-    console.log(subject)
-    console.log(course_number)
-
-    //@ts-ignore
     return await fetch('https://courses.umn.edu/campuses/UMNTC/terms/' + term + '/classes.json?q=subject_id=' + subject + ',catalog_number=' + course_number, {
       method: 'GET',
       headers: {
@@ -40,11 +37,15 @@ const searchString = async (s: String, term: String) => {
 
 export default function App() {
   // test function, run after user presses "submit"
-  const searchCourse = async (course: String) => {
-    // search the course name the user enters with searchString
-    const search = await (await searchString(course, "1239"))?.json()
+  const [courses, setCourses] = useState<course[]>([])
 
-    console.log(search)
+  const searchCourse = async (courseName: String) => {
+    // search the course name the user enters with searchString
+    const search: any = await (await searchString(courseName, "1239"))?.json()
+
+    search.courses.map((course: course) => {
+      setCourses([...courses, course])
+    })
   }
 
   return (
@@ -64,6 +65,7 @@ export default function App() {
           </View>
         )}
       </Formik>
+      <CoursesView courses={courses} />
     </View>
   )
 
