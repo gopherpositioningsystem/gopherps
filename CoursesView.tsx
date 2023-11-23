@@ -3,7 +3,6 @@ import { FlatList, ScrollView, Text, View } from "react-native"
 
 const SectionsView = ({ sections }: { sections: section[] }) => {
   return (
-    // TODO: display whether class is only online/blended/in person location
     // TODO: Implement formatted bulleted points for information
     // Note from Matthew: If anyone knows how to cut down the boilerplate on the format of each jsx element (see below) it would be greatly appreciated!
     <View>
